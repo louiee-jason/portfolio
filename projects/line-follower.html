@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Analog Line Follower Robot — Custom PCB design, analog circuit implementation, and hardware assembly. By Louie Jason." />
+  <title>Line Follower Robot | Louie Jason</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project-page.css" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html#projects" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#hero">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="../images/line_fol.jpeg" alt="" />
+    </div>
+    <div class="project-hero-content">
+      <a href="../index.html#projects" class="project-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      <span class="project-category-badge robotics">
+        <i class="fa-solid fa-robot"></i> Robotics & IoT
+      </span>
+      <h1 class="project-hero-title">Arduino Line Follower Robot</h1>
+      <p class="project-hero-summary">
+        A digital line follower robot integrating LM324 comparators for sensor processing, an Arduino Uno for decision making, and a motor driver for movement control.
+      </p>
+    </div>
+  </section>
+
+  <section class="project-detail">
+    <div class="project-detail-grid">
+      <div class="project-main">
+        <div class="project-image-showcase">
+          <img src="../images/line_fol.jpeg" alt="Arduino Line Follower Robot" />
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-circle-info"></i> Project Overview</h2>
+          <p>
+            This project is a digital line follower robot that deeply integrates custom hardware and software control. It utilizes LM324 operational amplifiers as comparators to cleanly convert raw analog infrared sensor signals into distinct digital HIGH/LOW states. These digital signals are then fed directly into an Arduino Uno, which runs custom C++ logic to determine the robot's position and calculate the required steering adjustments.
+          </p>
+          <p>
+            The system was designed and built from scratch, including custom PCB layout for the comparator modules, sensor calibration, and extensive algorithmic testing. The control logic implemented on the Arduino microcontroller outputs precise PWM signals to a dedicated motor driver to ensure smooth and accurate line following.
+          </p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-gears"></i> Design & Architecture</h2>
+          <ul>
+            <li><strong>Infrared Sensor Array:</strong> A set of infrared (IR) emitter-detector pairs mounted at the front of the robot detect the contrast between the line and the surface. The analog voltage output varies based on surface reflectivity.</li>
+            <li><strong>LM324 Comparator Module:</strong> LM324 operational amplifiers configured as comparators process the raw analog sensor signals, converting them into clean digital HIGH/LOW signals that indicate the robot's exact position relative to the line.</li>
+            <li><strong>Arduino Uno Microcontroller:</strong> Acts as the brain of the robot. It continuously reads the digital states from the LM324 module and executes steering algorithms to send calculated PWM signals.</li>
+            <li><strong>Motor Driver Circuit:</strong> A dedicated motor driver handles the high-current demands of the two DC motors. The motor speed is proportionally adjusted based on the Arduino's PWM outputs, creating smooth steering behavior.</li>
+            <li><strong>Power Supply:</strong> A regulated power supply circuit provides stable voltage to all components, with separate power rails for logic circuits and motor drivers to prevent noise interference.</li>
+            <li><strong>Custom PCB:</strong> The entire circuit was laid out on a custom-designed PCB, optimizing component placement for minimal signal interference and compact form factor.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-code"></i> Circuit Design Process</h2>
+          <p>
+            The design process followed a systematic approach from concept to working prototype:
+          </p>
+          <ul>
+            <li><strong>Schematic Design:</strong> The complete circuit schematic was designed, specifying all component values, connections, and signal paths. Each subcircuit was designed and simulated independently before integration.</li>
+            <li><strong>Component Selection:</strong> Careful selection of components including op-amps, transistors, resistors, and capacitors based on performance requirements, availability, and cost constraints.</li>
+            <li><strong>PCB Layout:</strong> The schematic was translated into a physical PCB layout, considering trace widths for power lines, component spacing, ground plane design, and manufacturing constraints.</li>
+            <li><strong>Assembly & Soldering:</strong> All components were hand-soldered onto the fabricated PCB, requiring precision soldering skills and attention to component orientation and placement.</li>
+            <li><strong>Calibration & Testing:</strong> Each subcircuit was tested individually, then the complete system was calibrated by adjusting potentiometers to fine-tune sensor sensitivity and motor response.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-lightbulb"></i> Challenges & Solutions</h2>
+          <ul>
+            <li><strong>Analog Noise:</strong> Electrical noise from motors affected sensor readings. This was mitigated through proper PCB ground plane design, decoupling capacitors, and physical separation of power and signal traces.</li>
+            <li><strong>Sensor Sensitivity:</strong> Variations in ambient lighting affected IR sensor performance. Adjustable threshold potentiometers and shielded sensor housings improved reliability.</li>
+            <li><strong>Motor Speed Matching:</strong> Slight differences between two motors caused drift. Individual motor calibration adjustments and proportional control logic corrected this behavior.</li>
+            <li><strong>Heat Management:</strong> Motor driver transistors generated heat during operation. Proper heat sinking and thermal design ensured reliable continuous operation.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-graduation-cap"></i> Key Learnings</h2>
+          <ul>
+            <li>Analog circuit design principles and op-amp applications</li>
+            <li>PCB design, layout, and manufacturing process</li>
+            <li>Hand soldering techniques and quality control</li>
+            <li>Motor control theory and H-bridge driver circuits</li>
+            <li>Sensor physics and signal conditioning</li>
+            <li>Systematic debugging of analog electronic systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-sidebar">
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+          <div class="sidebar-tech-list">
+            <span class="sidebar-tech-tag">Arduino Uno</span>
+            <span class="sidebar-tech-tag">C++</span>
+            <span class="sidebar-tech-tag">LM324</span>
+            <span class="sidebar-tech-tag">Motor Driver</span>
+            <span class="sidebar-tech-tag">PCB Design</span>
+            <span class="sidebar-tech-tag">IR Sensors</span>
+            <span class="sidebar-tech-tag">Circuit Design</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-drafting-compass"></i>
+            <span>Designed <strong>complete hardware-software integrated system</strong> from schematic to working PCB</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Built <strong>with an Arduino Uno</strong> — utilizing digital comparator control logic</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-print"></i>
+            <span>Created <strong>custom PCB layout</strong> with optimized component placement</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-user"></i> Project Info</h3>
+          <div class="role-item">
+            <div class="role-label">Role</div>
+            <div class="role-value">Designer & Builder</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Category</div>
+            <div class="role-value">Digital Robotics & Electronics</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Type</div>
+            <div class="role-value">Academic Project</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-link"></i> Links</h3>
+          <div class="sidebar-links">
+
+            <a href="../index.html#projects" class="btn btn-primary btn-small">
+              <i class="fa-solid fa-arrow-left"></i> All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 &mdash; Built by <span>Louie Jason</span></p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('open'); }));
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

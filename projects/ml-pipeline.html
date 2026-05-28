@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bank Customer Segmentation & Classification Machine Learning Pipeline. By Louie Jason." />
+  <title>Bank Customer ML Pipeline | Louie Jason</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project-page.css" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html#projects" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#hero">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80" alt="" />
+    </div>
+    <div class="project-hero-content">
+      <a href="../index.html#projects" class="project-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      <span class="project-category-badge data">
+        <i class="fa-solid fa-brain"></i> Machine Learning
+      </span>
+      <h1 class="project-hero-title">Bank Customer Segmentation & Classification</h1>
+      <p class="project-hero-summary">
+        An end-to-end machine learning pipeline addressing the lack of labeled banking data by using clustering for segmentation, followed by supervised classification to predict customer risk and behavioral profiles.
+      </p>
+    </div>
+  </section>
+
+  <section class="project-detail">
+    <div class="project-detail-grid">
+      <div class="project-main">
+        <div class="project-image-showcase">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80" alt="Machine Learning Data Visualizations" />
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-circle-info"></i> Project Overview</h2>
+          <p>
+            Banks often lack labeled data to truly understand their customer behavior, making targeted marketing, risk profiling, and retention strategies incredibly difficult. This project directly solves that issue by building a complete machine learning pipeline.
+          </p>
+          <p>
+            First, unsupervised clustering was used to group customers into behavioral segments based on their transactional data. Once these segments were verified, supervised classification models were trained to predict these exact segments for any new incoming customers.
+          </p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-chart-pie"></i> Phase 1: Unsupervised Learning (Clustering)</h2>
+          <p>The first phase successfully segmented the bank's customers into distinct profiles:</p>
+          <ul>
+            <li><strong>Preprocessing & Engineering:</strong> Handled missing data, applied One-Hot Encoding, scaled with StandardScaler, and binned features.</li>
+            <li><strong>Optimal Cluster Selection:</strong> Utilized the <strong>Elbow Method</strong> and evaluated <strong>Silhouette Scores</strong> to mathematically determine the ideal number of clusters.</li>
+            <li><strong>Model Training:</strong> Trained a <strong>K-Means Clustering</strong> algorithm with <strong>PCA</strong> for dimensionality reduction.</li>
+          </ul>
+          <h3>Identified Cluster Insights:</h3>
+          <ul>
+            <li><strong>Segment 0 (High-Value):</strong> High-income customers with frequent transactions.</li>
+            <li><strong>Segment 1 (Low-Engagement):</strong> Low activity customers with minimal transactions.</li>
+            <li><strong>Segment 2 (Potential Risk):</strong> Moderate income customers exhibiting high credit usage.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-microchip"></i> Phase 2: Supervised Learning (Classification)</h2>
+          <p>With the customers accurately labeled into the 3 segments above, predictive models were built.</p>
+          <ul>
+            <li><strong>Algorithm Selection:</strong> Trained both <strong>Decision Tree</strong> and <strong>Random Forest</strong> Classifiers.</li>
+            <li><strong>Hyperparameter Tuning:</strong> Conducted extensive optimization using <strong>GridSearchCV</strong>.</li>
+            <li><strong>Model Evaluation:</strong> The Random Forest model achieved strong performance across Accuracy, Precision, Recall, and F1-score, proving that clustering-based labeling is highly effective for training supervised models.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-lightbulb"></i> Business Impact</h2>
+          <ul>
+            <li><strong>Targeted Marketing:</strong> Enables specialized campaigns focused solely on the high-value (Segment 0) customers.</li>
+            <li><strong>Risk Mitigation:</strong> Helps preemptively identify risky customer segments with high credit usage (Segment 2).</li>
+            <li><strong>Churn Prevention:</strong> Supports strategic retention efforts specifically designed for low-engagement users (Segment 1).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-sidebar">
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+          <div class="sidebar-tech-list">
+            <span class="sidebar-tech-tag">Python</span>
+            <span class="sidebar-tech-tag">Scikit-Learn</span>
+            <span class="sidebar-tech-tag">Pandas</span>
+            <span class="sidebar-tech-tag">NumPy</span>
+            <span class="sidebar-tech-tag">K-Means</span>
+            <span class="sidebar-tech-tag">PCA</span>
+            <span class="sidebar-tech-tag">Random Forest</span>
+            <span class="sidebar-tech-tag">GridSearchCV</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-gears"></i>
+            <span>Built a complete <strong>End-to-End ML Pipeline</strong></span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <span>Turned Unlabeled Data into <strong>Actionable Labels</strong></span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-user"></i> Project Info</h3>
+          <div class="role-item">
+            <div class="role-label">Role</div>
+            <div class="role-value">Machine Learning Engineer</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Category</div>
+            <div class="role-value">Machine Learning Pipeline</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-link"></i> Links</h3>
+          <div class="sidebar-links">
+            <a href="https://github.com/louiee-jason/bank-customer-segmentation-and-classification/tree/main" target="_blank" class="btn btn-outline btn-small" style="width: 100%; justify-content: center;">
+              <i class="fa-brands fa-github"></i> View Repository
+            </a>
+            <a href="../index.html#projects" class="btn btn-primary btn-small" style="width: 100%; justify-content: center; margin-top: 10px;">
+              <i class="fa-solid fa-arrow-left"></i> All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 &mdash; Built by <span>Louie Jason</span></p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('open'); }));
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

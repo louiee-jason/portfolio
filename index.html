@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Louie Jason — Electrical Engineering student passionate about AI, Data Science, Robotics & IoT. Explore projects, skills, and experience." />
+  <meta name="keywords" content="Louie Jason, portfolio, AI, data science, robotics, IoT, electrical engineering" />
+  <meta name="author" content="Louie Jason" />
+  <title>Louie Jason — AI & Robotics Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-spinner"></div>
+    <div class="preloader-text">Loading</div>
+  </div>
+
+  <!-- ===== BG BLOBS ===== -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- ===== PARTICLES ===== -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- ===== NAV OVERLAY ===== -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>Open to Opportunities</span>
+      </div>
+      <h1 class="hero-name">Louie Jason</h1>
+      <div class="hero-typing-wrapper">
+        <span class="hero-typing" id="typingText"></span><span class="typing-cursor"></span>
+      </div>
+      <p class="hero-description">
+        Passionate about building intelligent systems through AI, automation, robotics, and data-driven technology.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-rocket"></i> View Projects
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fa-solid fa-paper-plane"></i> Contact Me
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-mouse"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Who I Am</h2>
+        <p class="section-subtitle">A brief introduction about my background and what drives me.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-image-wrapper reveal-left">
+          <div class="about-image-card">
+            <img src="images/me.jpeg" alt="Louie Jason" class="about-photo" />
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Certs</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Domains</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-content reveal-right">
+          <h3>Electrical Engineering &amp; AI Enthusiast</h3>
+          <p>
+            Final-year Electrical Engineering student at Universitas Kristen Krida Wacana (UKRIDA) with strong interests in AI, automation, robotics, IoT systems, and data science.
+          </p>
+          <p>
+            Experienced in developing machine learning projects, dashboard monitoring systems, embedded systems, and hardware-software integration projects.
+          </p>
+          <p>
+            Comfortable working with Python, SQL, Streamlit, machine learning models, Raspberry Pi, ESP32, MQTT communication, and data visualization tools.
+          </p>
+          <p>
+            Strong analytical thinking, problem-solving, teamwork, and automation mindset.
+          </p>
+          <div class="about-highlights">
+            <span class="highlight-tag"><i class="fa-solid fa-brain"></i> AI &amp; ML</span>
+            <span class="highlight-tag"><i class="fa-solid fa-robot"></i> Robotics</span>
+            <span class="highlight-tag"><i class="fa-solid fa-database"></i> Data Science</span>
+            <span class="highlight-tag"><i class="fa-solid fa-microchip"></i> IoT</span>
+            <span class="highlight-tag"><i class="fa-solid fa-chart-line"></i> Analytics</span>
+            <span class="highlight-tag"><i class="fa-solid fa-gears"></i> Automation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">Technical Toolkit</h2>
+        <p class="section-subtitle">Technologies and tools I use to build intelligent systems.</p>
+      </div>
+      <div class="skills-categories">
+        <!-- Data Science & AI -->
+        <div class="skill-category reveal">
+          <div class="skill-category-header">
+            <div class="skill-category-icon data">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="skill-category-title">Data Science &amp; AI</h3>
+          </div>
+          <div class="skills-grid">
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Python</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> SQL</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Pandas</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> NumPy</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Streamlit</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Machine Learning</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> XGBoost</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Random Forest</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Data Analysis</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Dashboard Development</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Data Visualization</span>
+          </div>
+        </div>
+        <!-- Robotics & IoT -->
+        <div class="skill-category reveal">
+          <div class="skill-category-header">
+            <div class="skill-category-icon robotics">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <h3 class="skill-category-title">Robotics &amp; IoT</h3>
+          </div>
+          <div class="skills-grid">
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Arduino</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> ESP32</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Raspberry Pi</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> MQTT</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Embedded Systems</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Sensor Integration</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Automation Systems</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Hardware Troubleshooting</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Linux Environment</span>
+          </div>
+        </div>
+        <!-- Tools & Platforms -->
+        <div class="skill-category reveal">
+          <div class="skill-category-header">
+            <div class="skill-category-icon tools">
+              <i class="fa-solid fa-wrench"></i>
+            </div>
+            <h3 class="skill-category-title">Tools &amp; Platforms</h3>
+          </div>
+          <div class="skills-grid">
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Git</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> VS Code</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Jupyter Notebook</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Excel</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Google Sheets</span>
+            <span class="skill-chip"><i class="fa-solid fa-circle"></i> Firebase</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Projects</span>
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-subtitle">Explore my key projects across Data Science and Robotics.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="projects-tabs reveal">
+        <button class="tab-btn active" data-tab="datascience" id="tab-datascience">
+          <i class="fa-solid fa-chart-bar"></i>&nbsp; Data Science &amp; AI
+        </button>
+        <button class="tab-btn" data-tab="robotics" id="tab-robotics">
+          <i class="fa-solid fa-robot"></i>&nbsp; Robotics &amp; IoT
+        </button>
+      </div>
+
+      <!-- Data Science Tab -->
+      <div class="tab-content active" id="datascience">
+        <div class="projects-grid">
+          <!-- Project 0: E-Commerce Dashboard -->
+          <div class="project-card reveal">
+            <div class="project-content">
+              <h3 class="project-title">E-Commerce Data Analysis & Dashboard</h3>
+              <p class="project-description">
+                Built an interactive Streamlit dashboard to analyze e-commerce transaction data, uncover revenue patterns, evaluate product performance, and segment customers using RFM analysis. The project involves full data preprocessing, EDA, and deploying a web app for stakeholders.
+              </p>
+              <div class="project-highlight">
+                <i class="fa-solid fa-trophy"></i> Interactive Dashboard with RFM Customer Segmentation
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Plotly</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/ecommerce-dashboard.html" class="btn btn-primary btn-small">
+                  <i class="fa-solid fa-arrow-right"></i> View Details
+                </a>
+                <a href="https://ecommerce-dashboard-analysis-louieejason.streamlit.app/" target="_blank" class="btn btn-outline btn-small">
+                  <i class="fa-solid fa-chart-line"></i> Live Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 1: ML Pipeline -->
+          <div class="project-card reveal">
+            <div class="project-content">
+              <h3 class="project-title">Bank Customer Segmentation & Classification</h3>
+              <p class="project-description">
+                An end-to-end machine learning pipeline utilizing K-Means clustering to discover hidden banking customer segments (e.g. high-value vs. risk profiles), followed by a Random Forest classification model to accurately predict customer behaviors.
+              </p>
+              <div class="project-highlight">
+                <i class="fa-solid fa-trophy"></i> Combined Unsupervised & Supervised Learning
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Scikit-Learn</span>
+                <span class="tech-tag">PCA</span>
+                <span class="tech-tag">K-Means</span>
+                <span class="tech-tag">Random Forest</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/ml-pipeline.html" class="btn btn-primary btn-small">
+                  <i class="fa-solid fa-arrow-right"></i> View Details
+                </a>
+                <a href="https://github.com/louiee-jason/bank-customer-segmentation-and-classification/tree/main" target="_blank" class="btn btn-outline btn-small">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2: Credit Default Prediction -->
+          <div class="project-card reveal">
+            <div class="project-content">
+              <h3 class="project-title">Credit Default Prediction</h3>
+              <p class="project-description">
+                Built a machine learning model to predict customer credit default risk using financial data. Handled extreme class imbalances using resampling methods (SMOTE) and optimized a Random Forest classifier to maximize recall and minimize financial risk.
+              </p>
+              <div class="project-highlight">
+                <i class="fa-solid fa-balance-scale"></i> Advanced Imbalanced Data Handling
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Scikit-Learn</span>
+                <span class="tech-tag">Random Forest</span>
+                <span class="tech-tag">SMOTE</span>
+                <span class="tech-tag">ROC-AUC</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/credit-default.html" class="btn btn-primary btn-small">
+                  <i class="fa-solid fa-arrow-right"></i> View Details
+                </a>
+                <a href="https://github.com/louiee-jason" target="_blank" class="btn btn-outline btn-small">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3: Smart Chair -->
+          <div class="project-card reveal">
+
+            <div class="project-content">
+              <h3 class="project-title">Smart Chair Posture Classification System</h3>
+              <p class="project-description">
+                Developed an IoT-based smart chair posture classification system capable of monitoring sitting posture in real-time using machine learning algorithms. The system collected posture sensor data using ESP32 and pressure sensors, then processed and visualized the data through a Streamlit dashboard. Multiple ML models including Random Forest, KNN, and XGBoost were trained and evaluated for posture classification. The final XGBoost model achieved approximately 98% classification accuracy, including data preprocessing, feature engineering, visualization, model evaluation, and real-time monitoring system integration.
+              </p>
+              <div class="project-highlight">
+                <i class="fa-solid fa-trophy"></i> Achieved 99% accuracy using Feature-Engineered KNN
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">Random Forest</span>
+                <span class="tech-tag">KNN</span>
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">Firebase</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/smart-chair.html" class="btn btn-primary btn-small">
+                  <i class="fa-solid fa-arrow-right"></i> View Details
+                </a>
+                <a href="https://github.com/louiee-jason" target="_blank" class="btn btn-outline btn-small">
+                  <i class="fa-brands fa-github"></i> GitHub (WIP)
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Robotics Tab -->
+      <div class="tab-content" id="robotics">
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card reveal">
+            <div class="project-content">
+              <h3 class="project-title">Raspberry Pi Multi-Floor Fire Alarm System</h3>
+              <p class="project-description">
+                Real-Time IoT Fire Monitoring and Notification System built during an R&D internship at PT Galva Technologies. Uses MQTT publish-subscribe architecture for low-latency communication between Raspberry Pi transmitter and receiver nodes across multiple floors.
+              </p>
+              <div class="project-highlight">
+                <i class="fa-solid fa-trophy"></i> Scalable Embedded IoT Architecture
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">MQTT</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">I2C</span>
+                <span class="tech-tag">IoT</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/fire-notification.html" class="btn btn-primary btn-small">
+                  <i class="fa-solid fa-arrow-right"></i> View Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="project-card reveal">
+
+            <div class="project-content">
+              <h3 class="project-title">KRSBI Robotics Project</h3>
+              <p class="project-description">
+                Participated in the Indonesian Robot Contest (KRSBI) and contributed to robot system preparation, hardware integration, and troubleshooting processes. Worked on embedded systems, robot electronics, testing, and hardware-software coordination for competition readiness.
+              </p>
+              <div class="project-highlight">
+                <i class="fa-solid fa-trophy"></i> Robotics competition and embedded systems experience
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Embedded Systems</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Robotics</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/krsbi-robotics.html" class="btn btn-primary btn-small">
+                  <i class="fa-solid fa-arrow-right"></i> View Details
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div class="project-card reveal">
+
+            <div class="project-content">
+              <h3 class="project-title">Arduino Line Follower Robot</h3>
+              <p class="project-description">
+                Designed and developed a digital line follower robot using LM324 comparator circuits for sensor signal processing, feeding into an Arduino Uno for control logic, and driving motors via a motor driver. Focused on sensor calibration, algorithm design, and hardware-software integration.
+              </p>
+              <div class="project-highlight">
+                <i class="fa-solid fa-trophy"></i> Hardware-Software integration with Arduino and custom PCB
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">LM324</span>
+                <span class="tech-tag">Motor Control</span>
+              </div>
+              <div class="project-links">
+                <a href="projects/line-follower.html" class="btn btn-primary btn-small">
+                  <i class="fa-solid fa-arrow-right"></i> View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Experience</span>
+        <h2 class="section-title">My Journey</h2>
+        <p class="section-subtitle">Key roles and responsibilities that shaped my professional growth.</p>
+      </div>
+      <div class="timeline">
+        <!-- Item 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Research &amp; Development Intern</h3>
+            <p class="timeline-org">Industry R&amp;D Division</p>
+            <p class="timeline-period"><i class="fa-regular fa-calendar"></i> 2024</p>
+            <p class="timeline-desc">
+              Contributed to research and development initiatives involving data analysis, system prototyping, and technical documentation. Assisted in developing automation solutions and integrating IoT systems for monitoring and control applications.
+            </p>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Lecturer Assistant — Robotics</h3>
+            <p class="timeline-org">Universitas Kristen Krida Wacana (UKRIDA)</p>
+            <p class="timeline-period"><i class="fa-regular fa-calendar"></i> 2023 – 2024</p>
+            <p class="timeline-desc">
+              Assisted lecturers in conducting robotics laboratory sessions. Guided students through embedded systems programming, hardware assembly, sensor calibration, and troubleshooting electronics circuits for robotics coursework.
+            </p>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Coding Tutor</h3>
+            <p class="timeline-org">Private &amp; Group Tutoring</p>
+            <p class="timeline-period"><i class="fa-regular fa-calendar"></i> 2023 – Present</p>
+            <p class="timeline-desc">
+              Provided coding tutoring in Python, Arduino, and basic data science concepts. Helped students understand programming logic, complete academic projects, and develop practical coding skills through hands-on exercises.
+            </p>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Head of Public Relations</h3>
+            <p class="timeline-org">Electrical Engineering Student Association</p>
+            <p class="timeline-period"><i class="fa-regular fa-calendar"></i> 2022 – 2023</p>
+            <p class="timeline-desc">
+              Led the public relations division of the Electrical Engineering student association. Managed event communications, coordinated with external partners and sponsors, and organized outreach programs to strengthen the association's presence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Certifications</span>
+        <h2 class="section-title">Credentials</h2>
+        <p class="section-subtitle">Professional certifications and learning achievements.</p>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal">
+          <div class="cert-icon"><img src="images/dicoding.png" alt="Dicoding Logo" /></div>
+          <div class="cert-info">
+            <h4>SQL &amp; Data Visualization</h4>
+            <p>Dicoding Indonesia</p>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon"><img src="images/dqlab.png" alt="DQLab Logo" /></div>
+          <div class="cert-info">
+            <h4>Python &amp; Data Science</h4>
+            <p>DQLab</p>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon"><img src="images/revou.jpg" alt="RevoU Logo" /></div>
+          <div class="cert-info">
+            <h4>Intro to Data Analytics</h4>
+            <p>RevoU</p>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon"><img src="images/digica.jpeg" alt="Digica Logo" /></div>
+          <div class="cert-info">
+            <h4>Data Science Bootcamp</h4>
+            <p>Digica Academy</p>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon"><img src="images/codingcamp.jpeg" alt="Coding Camp Logo" /></div>
+          <div class="cert-info">
+            <h4>Coding Camp — Data Science Path</h4>
+            <p>DBS Foundation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have a project or opportunity in mind? Let's connect.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <h3>Let's Work Together</h3>
+          <p>I'm currently open to internship opportunities, freelance projects, and collaborations in AI, Data Science, Robotics, and IoT. Feel free to reach out!</p>
+          <div class="contact-socials">
+            <a href="https://linkedin.com/in/louieejason" target="_blank" class="social-link" id="linkedin-link">
+              <div class="social-icon-wrapper linkedin">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="social-link-text">
+                <strong>LinkedIn</strong>
+                <span>linkedin.com/in/louieejason</span>
+              </div>
+            </a>
+            <a href="https://github.com/louiee-jason" target="_blank" class="social-link" id="github-link">
+              <div class="social-icon-wrapper github">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="social-link-text">
+                <strong>GitHub</strong>
+                <span>github.com/louiee-jason</span>
+              </div>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=krenzlouie39@gmail.com" target="_blank" class="social-link" id="email-link">
+              <div class="social-icon-wrapper email">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="social-link-text">
+                <strong>Email</strong>
+                <span>krenzlouie39@gmail.com</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrapper reveal-right">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvzydejg" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Project Collaboration" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit-btn">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p class="footer-text">
+      &copy; 2025 &mdash; Built by <span>Louie Jason</span>
+    </p>
+  </footer>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="E-Commerce Data Analysis & Interactive Dashboard. By Louie Jason." />
+  <title>E-Commerce Analytics Dashboard | Louie Jason</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project-page.css" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html#projects" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#hero">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="../images/dashboard.png" alt="" />
+    </div>
+    <div class="project-hero-content">
+      <a href="../index.html#projects" class="project-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      <span class="project-category-badge data">
+        <i class="fa-solid fa-chart-line"></i> Data Science & AI
+      </span>
+      <h1 class="project-hero-title">E-Commerce Data Analysis & Dashboard</h1>
+      <p class="project-hero-summary">
+        An interactive Streamlit dashboard built to analyze e-commerce transaction data, uncover revenue patterns, evaluate product performance, and segment customers using RFM analysis.
+      </p>
+    </div>
+  </section>
+
+  <section class="project-detail">
+    <div class="project-detail-grid">
+      <div class="project-main">
+        <div class="project-image-showcase">
+          <img src="../images/dashboard.png" alt="E-Commerce Analytics Dashboard" />
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-circle-info"></i> Project Overview</h2>
+          <p>
+            This project focuses on analyzing an extensive e-commerce transaction dataset to uncover critical business insights related to revenue patterns, customer behavior, and product performance. The findings and metrics are delivered through an interactive, highly visual dashboard built with <strong>Streamlit</strong> and <strong>Plotly</strong>.
+          </p>
+          <p>
+            The project covers the entire data pipeline — from data wrangling and preprocessing to exploratory data analysis (EDA) and ultimately deploying a fully interactive web application for stakeholders to monitor key performance indicators (KPIs).
+          </p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-bullseye"></i> Objectives</h2>
+          <ul>
+            <li>Understand historical revenue trends and sales patterns over time.</li>
+            <li>Analyze product category performance to identify top-selling items.</li>
+            <li>Identify customer purchasing behaviors and payment method preferences.</li>
+            <li>Perform <strong>RFM (Recency, Frequency, Monetary) analysis</strong> to accurately segment customers into High, Mid, and Low value categories.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-magnifying-glass-chart"></i> Methodology</h2>
+          <p>The analysis followed a structured data science workflow:</p>
+          <ul>
+            <li><strong>Data Preprocessing:</strong> Handled missing values, removed outliers using the IQR method, transformed features, and formatted datetime columns.</li>
+            <li><strong>Exploratory Data Analysis (EDA):</strong> Explored revenue trends over time, product category contributions, and payment method distributions.</li>
+            <li><strong>Customer Segmentation:</strong> Applied RFM analysis to identify high-value customers and low-engagement buyers.</li>
+            <li><strong>Dashboard Development:</strong> Built an interactive dashboard using Streamlit, featuring Plotly visualizations for dynamic exploration of metrics and trends.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-lightbulb"></i> Key Insights</h2>
+          <ul>
+            <li><strong>Revenue Trends:</strong> Revenue peaked in late 2017, but the repeat purchase rate remained relatively low overall.</li>
+            <li><strong>Product Dominance:</strong> A small number of product categories generate the vast majority of revenue, strongly aligning with the Pareto principle.</li>
+            <li><strong>Retention Issues:</strong> Most customers only make a single transaction, indicating low customer retention that needs addressing.</li>
+            <li><strong>Payment Preferences:</strong> Credit cards are overwhelmingly the dominant payment method chosen by users.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-briefcase"></i> Business Recommendations</h2>
+          <ul>
+            <li>Implement targeted loyalty programs to significantly improve customer retention and increase purchase frequency.</li>
+            <li>Target one-time buyers with personalized promotions or discount campaigns.</li>
+            <li>Focus marketing efforts and inventory management on the highest-performing product categories.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-sidebar">
+        <div class="sidebar-card" style="text-align: center; padding: 20px;">
+           <a href="https://ecommerce-dashboard-analysis-louieejason.streamlit.app/" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 15px;">
+             <i class="fa-solid fa-chart-line"></i> View Live Dashboard
+           </a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+          <div class="sidebar-tech-list">
+            <span class="sidebar-tech-tag">Python</span>
+            <span class="sidebar-tech-tag">Pandas</span>
+            <span class="sidebar-tech-tag">Matplotlib</span>
+            <span class="sidebar-tech-tag">Plotly</span>
+            <span class="sidebar-tech-tag">Streamlit</span>
+            <span class="sidebar-tech-tag">Jupyter Notebook</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Applied <strong>RFM Analysis</strong> for effective customer segmentation</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>Deployed a fully interactive <strong>Streamlit</strong> application</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-user"></i> Project Info</h3>
+          <div class="role-item">
+            <div class="role-label">Role</div>
+            <div class="role-value">Data Analyst</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Category</div>
+            <div class="role-value">Data Science & Analytics</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-link"></i> Links</h3>
+          <div class="sidebar-links">
+            <a href="https://github.com/louiee-jason/ecommerce-dashboard-analysis" target="_blank" class="btn btn-outline btn-small">
+              <i class="fa-brands fa-github"></i> View Repository
+            </a>
+            <a href="../index.html#projects" class="btn btn-primary btn-small">
+              <i class="fa-solid fa-arrow-left"></i> All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 &mdash; Built by <span>Louie Jason</span></p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('open'); }));
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

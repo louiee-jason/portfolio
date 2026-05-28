@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Smart Chair Posture Classification System — IoT-based posture monitoring with 99% KNN accuracy. By Louie Jason." />
+  <title>Smart Chair Posture Classification | Louie Jason</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project-page.css" />
+  <style>
+    .showcase-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 32px; box-shadow: var(--shadow-card); transition: var(--transition-med); }
+    .showcase-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+    .showcase-card-img { width: 100%; display: block; transition: transform 0.4s ease; cursor: zoom-in; }
+    .showcase-card:hover .showcase-card-img { transform: scale(1.015); }
+    .showcase-card-body { padding: 22px 26px; border-top: 1px solid var(--border-light); }
+    .showcase-card-body h4 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .showcase-card-body h4 i { color: var(--accent); font-size: 0.82rem; }
+    .showcase-card-body p { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.75; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 24px; margin-bottom: 32px; }
+    .result-stat-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 28px 20px; text-align: center; box-shadow: var(--shadow-card); transition: var(--transition-med); position: relative; overflow: hidden; }
+    .result-stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); opacity: 0; transition: var(--transition-med); }
+    .result-stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+    .result-stat-card:hover::before { opacity: 1; }
+    .result-stat-icon { width: 46px; height: 46px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin: 0 auto 14px; background: var(--accent-bg); color: var(--accent); }
+    .result-stat-value { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+    .result-stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+    .callout-box { background: var(--accent-bg); border: 1px solid var(--accent-border); border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 20px 24px; margin: 24px 0; display: flex; align-items: flex-start; gap: 14px; }
+    .callout-box i { color: var(--accent); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+    .callout-box p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 0 !important; }
+    .callout-box strong { color: var(--accent-dark, #8B6D4F); }
+    .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(43, 43, 43, 0.85); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; cursor: zoom-out; }
+    .lightbox.active { opacity: 1; visibility: visible; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: var(--radius-md); box-shadow: 0 20px 60px rgba(0,0,0,0.3); transform: scale(0.92); transition: transform 0.3s ease; }
+    .lightbox.active img { transform: scale(1); }
+    .lightbox-close { position: absolute; top: 24px; right: 32px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-fast); }
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+    @media (max-width: 768px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .results-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- BG -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html#projects" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#hero">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></button>
+    <img src="" alt="Enlarged view" id="lightboxImg" />
+  </div>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="../img_chair/system_overview.png" alt="" />
+    </div>
+    <div class="project-hero-content">
+      <a href="../index.html#projects" class="project-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      <span class="project-category-badge ds">
+        <i class="fa-solid fa-brain"></i> Data Science & AI + IoT
+      </span>
+      <h1 class="project-hero-title">Smart Chair Posture Classification System</h1>
+      <p class="project-hero-summary">
+        An IoT-based smart chair system that monitors sitting posture in real-time using machine learning, achieving 99% classification accuracy with a feature-engineered KNN model.
+      </p>
+    </div>
+  </section>
+
+  <!-- DETAIL -->
+  <section class="project-detail">
+    <div class="project-detail-grid">
+      <!-- ===== MAIN CONTENT ===== -->
+      <div class="project-main">
+
+        <!-- 1. PROJECT OVERVIEW -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-circle-info"></i> Project Overview</h2>
+          <p>
+            Poor sitting posture is a growing health concern, especially among students and professionals who spend prolonged hours at their desks. This project addresses that problem by developing a Smart Chair Posture Classification System — an end-to-end IoT and machine learning solution that monitors sitting posture in real-time and classifies it automatically.
+          </p>
+          <p>
+            The system combines embedded hardware (ESP32 microcontroller with distributed pressure sensors), cloud data storage (Firebase), and a Python-based machine learning pipeline with a Streamlit dashboard for real-time visualization and monitoring. Multiple ML models were trained and compared, with the feature-engineered KNN model achieving the best overall performance at approximately 99% accuracy.
+          </p>
+        </div>
+
+        <!-- 2. SYSTEM ARCHITECTURE -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-diagram-project"></i> System Architecture</h2>
+          <p>
+            The system operates through a multi-stage pipeline — from raw sensor data collection at the hardware level to machine learning classification and real-time dashboard visualization. The architecture ensures seamless data flow from the physical chair to the end-user interface.
+          </p>
+          <div class="showcase-card">
+            <img src="../img_chair/system_overview.png" alt="System Architecture Overview" class="showcase-card-img lightbox-trigger" />
+            <div class="showcase-card-body">
+              <h4><i class="fa-solid fa-sitemap"></i> End-to-End System Pipeline</h4>
+              <p>Complete workflow from pressure sensor data collection through ESP32, Firebase cloud storage, data preprocessing, feature engineering, ML model training, and real-time posture prediction displayed on the Streamlit dashboard.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. HARDWARE & SENSOR LAYOUT -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-microchip"></i> Hardware & Sensor Layout</h2>
+          <p>
+            The hardware setup consists of multiple pressure sensors strategically distributed across the chair seat and backrest. Each sensor captures localized pressure values that correspond to specific body contact points, enabling the system to differentiate between various sitting postures based on pressure distribution patterns.
+          </p>
+          <div class="showcase-card">
+            <img src="../img_chair/sensor_distribution.png" alt="Sensor Distribution on Chair" class="showcase-card-img lightbox-trigger" />
+            <div class="showcase-card-body">
+              <h4><i class="fa-solid fa-chair"></i> Sensor Placement Configuration</h4>
+              <p>Pressure sensors distributed across the seat and backrest areas capture real-time pressure data that forms the input features for the ML classification model. The ESP32 reads analog sensor values and transmits them wirelessly to Firebase.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. DATASET & POSTURE CLASSES -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-database"></i> Dataset & Posture Classes</h2>
+          <p>
+            The dataset was built by recording sensor readings across multiple sitting posture variations. Postures were categorized into distinct classes — including ideal upright posture and several non-ideal posture types — to train the classification model on real-world sitting behaviors.
+          </p>
+          <div class="showcase-card">
+            <img src="../img_chair/seating_posture.png" alt="Seating Posture Classes" class="showcase-card-img lightbox-trigger" />
+            <div class="showcase-card-body">
+              <h4><i class="fa-solid fa-tags"></i> Posture Categories & Labeling</h4>
+              <p>The dataset contains multiple sitting posture variations categorized into ideal and non-ideal posture classes. Each class was carefully labeled and balanced to ensure robust model training and evaluation across all posture types.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. EXPLORATORY DATA ANALYSIS -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-chart-column"></i> Exploratory Data Analysis (EDA)</h2>
+          <p>
+            Before model training, extensive exploratory data analysis was performed to understand sensor data distributions, feature correlations, and posture-related patterns. This analysis guided the feature engineering process and informed model selection decisions.
+          </p>
+          <div class="showcase-card">
+            <img src="../img_chair/feature_engineering.png" alt="Feature Correlation Analysis" class="showcase-card-img lightbox-trigger" />
+            <div class="showcase-card-body">
+              <h4><i class="fa-solid fa-magnifying-glass-chart"></i> Feature Correlation & Sensor Patterns</h4>
+              <p>Visualization of feature relationships and sensor data distributions revealed key patterns that differentiate posture classes. These insights drove the feature engineering strategy that significantly improved model accuracy.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. FEATURE ENGINEERING IMPACT -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Feature Engineering Impact</h2>
+          <p>
+            Feature engineering played a critical role in boosting model performance. By creating derived features from raw sensor data — such as pressure ratios, zone aggregations, and statistical features — the models were able to capture more nuanced posture characteristics that raw data alone could not express.
+          </p>
+          <div class="showcase-card">
+            <img src="../img_chair/fe_model.png" alt="Feature Engineering Model Performance" class="showcase-card-img lightbox-trigger" />
+            <div class="showcase-card-body">
+              <h4><i class="fa-solid fa-arrow-trend-up"></i> Performance Before vs. After Feature Engineering</h4>
+              <p>Feature engineering dramatically improved KNN model performance across all evaluation metrics — accuracy, precision, recall, and F1-score — confirming the importance of domain-driven feature creation in ML workflows.</p>
+            </div>
+          </div>
+
+          <div class="callout-box">
+            <i class="fa-solid fa-star"></i>
+            <p>
+              <strong>Key Finding:</strong> The feature-engineered KNN model achieved the best overall performance with approximately <strong>99% accuracy</strong> and strong classification consistency across all evaluation metrics. This made KNN the clear winner over Random Forest, SVM, and XGBoost for this specific classification task.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7. MODEL EVALUATION & COMPARISON -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-scale-balanced"></i> Model Evaluation & Comparison</h2>
+          <p>
+            Four machine learning algorithms were systematically evaluated: Random Forest, K-Nearest Neighbors (KNN), Support Vector Machine (SVM), and XGBoost. Each model was trained on both raw and feature-engineered datasets, with performance compared across accuracy, precision, recall, and F1-score metrics.
+          </p>
+          <div class="showcase-card">
+            <img src="../img_chair/conf_matrix.png" alt="Confusion Matrix Comparison" class="showcase-card-img lightbox-trigger" />
+            <div class="showcase-card-body">
+              <h4><i class="fa-solid fa-table-cells"></i> Confusion Matrix — Multi-Model Comparison</h4>
+              <p>Confusion matrices for Random Forest, KNN, SVM, and XGBoost models reveal classification performance across all posture classes. KNN produced the most balanced classification performance with the lowest misclassification rate after feature engineering optimization.</p>
+            </div>
+          </div>
+
+          <div class="callout-box">
+            <i class="fa-solid fa-trophy"></i>
+            <p>
+              <strong>Best Model — KNN:</strong> KNN produced the most balanced classification performance with the lowest misclassification rate after feature engineering optimization. Its strong generalization and consistent results across all posture classes made it the ideal choice for real-time deployment.
+            </p>
+          </div>
+        </div>
+
+        <!-- 8. FINAL RESULTS -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-flag-checkered"></i> Final Results</h2>
+          <p>
+            The completed system demonstrates a successful integration of IoT hardware, cloud infrastructure, and machine learning — delivering real-time posture monitoring with high classification accuracy.
+          </p>
+
+          <div class="results-grid">
+            <div class="result-stat-card">
+              <div class="result-stat-icon">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div class="result-stat-value">99%</div>
+              <div class="result-stat-label">Accuracy</div>
+            </div>
+            <div class="result-stat-card">
+              <div class="result-stat-icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="result-stat-value">Real-Time</div>
+              <div class="result-stat-label">Monitoring</div>
+            </div>
+            <div class="result-stat-card">
+              <div class="result-stat-icon">
+                <i class="fa-solid fa-link"></i>
+              </div>
+              <div class="result-stat-value">IoT + ML</div>
+              <div class="result-stat-label">Integration</div>
+            </div>
+            <div class="result-stat-card">
+              <div class="result-stat-icon">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <div class="result-stat-value">Streamlit</div>
+              <div class="result-stat-label">Dashboard</div>
+            </div>
+            <div class="result-stat-card">
+              <div class="result-stat-icon">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div class="result-stat-value">KNN</div>
+              <div class="result-stat-label">Best Model</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. KEY LEARNINGS -->
+        <div class="project-section reveal">
+          <h2><i class="fa-solid fa-graduation-cap"></i> Key Learnings</h2>
+          <ul>
+            <li>End-to-end ML pipeline development — from IoT data collection to model deployment</li>
+            <li>The critical impact of feature engineering on classification model performance</li>
+            <li>Systematic model comparison and evaluation using multiple metrics</li>
+            <li>IoT sensor integration with ESP32 and cloud-based Firebase storage</li>
+            <li>Real-time data visualization and interactive dashboard development with Streamlit</li>
+            <li>Hardware-software integration for embedded systems and ML projects</li>
+            <li>Data preprocessing, cleaning, and exploratory analysis best practices</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <div class="project-sidebar">
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+          <div class="sidebar-tech-list">
+            <span class="sidebar-tech-tag">Python</span>
+            <span class="sidebar-tech-tag">Streamlit</span>
+            <span class="sidebar-tech-tag">KNN</span>
+            <span class="sidebar-tech-tag">XGBoost</span>
+            <span class="sidebar-tech-tag">Random Forest</span>
+            <span class="sidebar-tech-tag">SVM</span>
+            <span class="sidebar-tech-tag">Scikit-learn</span>
+            <span class="sidebar-tech-tag">Pandas</span>
+            <span class="sidebar-tech-tag">NumPy</span>
+            <span class="sidebar-tech-tag">ESP32</span>
+            <span class="sidebar-tech-tag">Firebase</span>
+            <span class="sidebar-tech-tag">MQTT</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Achieved <strong>~99% classification accuracy</strong> using feature-engineered KNN</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Built <strong>real-time posture monitoring</strong> dashboard with Streamlit</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span><strong>Feature engineering</strong> dramatically improved model metrics</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Integrated <strong>ESP32 + pressure sensors</strong> with Firebase cloud</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>Compared <strong>4 ML models</strong> — RF, KNN, SVM, XGBoost</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-user"></i> Project Info</h3>
+          <div class="role-item">
+            <div class="role-label">Role</div>
+            <div class="role-value">Developer & Researcher</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Category</div>
+            <div class="role-value">Data Science & IoT</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Type</div>
+            <div class="role-value">Academic Research Project</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Best Model</div>
+            <div class="role-value">Feature-Engineered KNN</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-link"></i> Links</h3>
+          <div class="sidebar-links">
+            <a href="https://github.com/louiee-jason" target="_blank" class="btn btn-outline btn-small">
+              <i class="fa-brands fa-github"></i> GitHub (WIP)
+            </a>
+            <a href="../index.html#projects" class="btn btn-primary btn-small">
+              <i class="fa-solid fa-arrow-left"></i> All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 &mdash; Built by <span>Louie Jason</span></p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+    }));
+
+    // Scroll to top
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Scroll Reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    function onScrollReveal() {
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          el.classList.add('revealed');
+        }
+      });
+    }
+    window.addEventListener('scroll', onScrollReveal);
+    setTimeout(onScrollReveal, 100);
+  </script>
+</body>
+</html>

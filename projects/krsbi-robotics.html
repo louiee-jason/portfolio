@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KRSBI Robotics Project — Indonesian Robot Contest participation with embedded systems and hardware integration. By Louie Jason." />
+  <title>KRSBI Robotics Project | Louie Jason</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project-page.css" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html#projects" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#hero">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="../images/project-krsbi.png" alt="" />
+    </div>
+    <div class="project-hero-content">
+      <a href="../index.html#projects" class="project-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      <span class="project-category-badge robotics">
+        <i class="fa-solid fa-robot"></i> Robotics & IoT
+      </span>
+      <h1 class="project-hero-title">KRSBI Robotics Project</h1>
+      <p class="project-hero-summary">
+        Contributed to the Indonesian Robot Contest (KRSBI) with embedded systems programming, hardware integration, and competition-level robot preparation.
+      </p>
+    </div>
+  </section>
+
+  <section class="project-detail">
+    <div class="project-detail-grid">
+      <div class="project-main">
+        <div class="project-image-showcase">
+          <img src="../images/project-krsbi.png" alt="KRSBI Robotics Competition" />
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-circle-info"></i> Project Overview</h2>
+          <p>
+            The Kontes Robot Sepak Bola Indonesia (KRSBI) is one of Indonesia's most prestigious robotics competitions, challenging teams to design, build, and program robots capable of autonomous and semi-autonomous operation. Participating in this national-level competition provided invaluable hands-on experience in robotics engineering.
+          </p>
+          <p>
+            As a team member, I contributed to multiple aspects of the robot development process, from electronics integration and embedded systems programming to testing and competition-day troubleshooting. The experience demanded strong teamwork, technical versatility, and the ability to work under pressure.
+          </p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-gears"></i> Responsibilities & Contributions</h2>
+          <ul>
+            <li><strong>Electronics Integration:</strong> Assembled and wired the robot's electronic components including motor drivers, microcontrollers, power distribution boards, and sensor modules. Ensured reliable electrical connections that could withstand the physical demands of competition.</li>
+            <li><strong>Embedded Systems Programming:</strong> Developed Arduino-based firmware for robot control, including motor speed regulation, sensor data processing, and communication between multiple microcontrollers within the robot system.</li>
+            <li><strong>Hardware Troubleshooting:</strong> Diagnosed and resolved hardware issues during development and testing phases, including loose connections, motor driver failures, sensor malfunctions, and power management problems.</li>
+            <li><strong>Testing & Calibration:</strong> Conducted systematic testing of robot subsystems, calibrated sensors for optimal performance, and fine-tuned control parameters to achieve desired robot behavior.</li>
+            <li><strong>Competition Preparation:</strong> Participated in pre-competition readiness checks, ensuring all systems were reliable and the robot met competition regulations and specifications.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-code"></i> Technical Details</h2>
+          <p>
+            The robot system utilized a multi-controller architecture to manage different subsystems effectively:
+          </p>
+          <ul>
+            <li><strong>Arduino Controllers:</strong> Multiple Arduino boards managed different robot functions — motor control, sensor processing, and communication — with serial communication between boards.</li>
+            <li><strong>Motor Control:</strong> H-bridge motor drivers controlled DC motors with PWM speed regulation, enabling precise movement control and direction changes.</li>
+            <li><strong>Sensor Suite:</strong> The robot utilized various sensors including ultrasonic distance sensors, infrared line sensors, and encoders for position tracking and environmental awareness.</li>
+            <li><strong>C++ Programming:</strong> All embedded firmware was written in C++ using the Arduino framework, with focus on efficient code execution for real-time control loops.</li>
+            <li><strong>Power Management:</strong> A custom power distribution system managed battery power across all electronic components with appropriate voltage regulation and protection circuits.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-lightbulb"></i> Challenges & Solutions</h2>
+          <ul>
+            <li><strong>Time Pressure:</strong> Competition deadlines required efficient project management and prioritization of critical systems over nice-to-have features.</li>
+            <li><strong>Mechanical-Electrical Interface:</strong> Ensuring electronics were properly mounted and protected within the robot chassis required close collaboration with the mechanical team.</li>
+            <li><strong>Communication Reliability:</strong> Serial communication between multiple controllers occasionally experienced data loss, resolved through error checking and protocol optimization.</li>
+            <li><strong>Competition Environment:</strong> The robot needed to perform reliably in unfamiliar environments with different lighting, surface conditions, and electromagnetic interference.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-graduation-cap"></i> Key Learnings</h2>
+          <ul>
+            <li>Competitive robotics engineering and systems integration</li>
+            <li>Arduino/embedded systems programming for real-time control</li>
+            <li>Team collaboration under pressure and tight deadlines</li>
+            <li>Hardware debugging and systematic troubleshooting methodologies</li>
+            <li>Multi-subsystem robot architecture design</li>
+            <li>Competition preparation and performance optimization</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-sidebar">
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+          <div class="sidebar-tech-list">
+            <span class="sidebar-tech-tag">Arduino</span>
+            <span class="sidebar-tech-tag">C++</span>
+            <span class="sidebar-tech-tag">Embedded Systems</span>
+            <span class="sidebar-tech-tag">Motor Drivers</span>
+            <span class="sidebar-tech-tag">Sensors</span>
+            <span class="sidebar-tech-tag">Robotics</span>
+            <span class="sidebar-tech-tag">Serial Communication</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-flag-checkered"></i>
+            <span>Participated in <strong>national-level KRSBI</strong> robotics competition</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span>Handled <strong>end-to-end hardware integration</strong> and troubleshooting</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-people-group"></i>
+            <span>Collaborated in <strong>cross-functional team</strong> environment under pressure</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-user"></i> Project Info</h3>
+          <div class="role-item">
+            <div class="role-label">Role</div>
+            <div class="role-value">Electronics & Embedded Systems</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Category</div>
+            <div class="role-value">Competitive Robotics</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Type</div>
+            <div class="role-value">Competition Project</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-link"></i> Links</h3>
+          <div class="sidebar-links">
+
+            <a href="../index.html#projects" class="btn btn-primary btn-small">
+              <i class="fa-solid fa-arrow-left"></i> All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 &mdash; Built by <span>Louie Jason</span></p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('open'); }));
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

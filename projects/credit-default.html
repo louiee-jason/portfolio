@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Credit Default Prediction Machine Learning Project. By Louie Jason." />
+  <title>Credit Default Prediction | Louie Jason</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project-page.css" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html#projects" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#hero">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+    </div>
+    <div class="project-hero-content">
+      <a href="../index.html#projects" class="project-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      <span class="project-category-badge data">
+        <i class="fa-solid fa-brain"></i> Machine Learning
+      </span>
+      <h1 class="project-hero-title">Credit Default Prediction</h1>
+      <p class="project-hero-summary">
+        A machine learning pipeline built to predict customer credit default risk using financial data, incorporating robust resampling methods to handle extreme class imbalances.
+      </p>
+    </div>
+  </section>
+
+  <section class="project-detail">
+    <div class="project-detail-grid">
+      <div class="project-main">
+        <div class="project-image-showcase">
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-circle-info"></i> Project Overview</h2>
+          <p>
+            In the financial industry, accurately predicting which customers are likely to default on their credit is critical for minimizing losses and managing risk. However, real-world financial datasets are notoriously noisy and highly imbalanced—the number of customers who default is typically much smaller than those who pay on time.
+          </p>
+          <p>
+            This project tackles this challenge head-on by building a robust machine learning model that predicts customer credit default risk, employing advanced data balancing techniques to ensure the model learns to identify high-risk individuals effectively.
+          </p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-code-branch"></i> Methodology</h2>
+          <p>The project followed a rigorous end-to-end data science lifecycle:</p>
+          <ul>
+            <li><strong>Data Preprocessing:</strong> Extensive cleaning of noisy financial data and engineering new features to better capture financial behavior.</li>
+            <li><strong>Class Imbalance Handling:</strong> Applied <strong>Resampling Methods</strong> (like SMOTE/Oversampling) to balance the dataset, preventing the model from simply predicting the majority class (non-default).</li>
+            <li><strong>Model Training:</strong> Trained and evaluated multiple models, focusing heavily on <strong>Random Forest</strong> for its robustness against overfitting and ability to handle non-linear relationships.</li>
+            <li><strong>Model Evaluation:</strong> Because of the imbalanced nature of the problem, standard accuracy was insufficient. The model was evaluated using strictly relevant metrics: <strong>ROC-AUC, Precision, Recall, and F1-score</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-chart-line"></i> Results & Key Insights</h2>
+          <ul>
+            <li><strong>Model Performance:</strong> The Random Forest model achieved significantly improved recall for the default class, meaning the bank can successfully detect a much higher percentage of true high-risk customers without excessive false alarms.</li>
+            <li><strong>Behavioral Insight:</strong> Feature importance analysis revealed that customers exhibiting a combination of <strong>higher credit utilization and lower income</strong> have a drastically higher probability of defaulting.</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-lightbulb"></i> Business Impact</h2>
+          <ul>
+            <li><strong>Risk Mitigation:</strong> Directly helps financial institutions reduce monetary losses by accurately flagging high-risk applications before credit is issued.</li>
+            <li><strong>Strategic Decision Making:</strong> Provides a data-driven foundation for credit approval boards, moving away from purely manual reviews toward automated, objective risk scoring.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-sidebar">
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+          <div class="sidebar-tech-list">
+            <span class="sidebar-tech-tag">Python</span>
+            <span class="sidebar-tech-tag">Scikit-Learn</span>
+            <span class="sidebar-tech-tag">Pandas</span>
+            <span class="sidebar-tech-tag">NumPy</span>
+            <span class="sidebar-tech-tag">Random Forest</span>
+            <span class="sidebar-tech-tag">SMOTE</span>
+            <span class="sidebar-tech-tag">ROC-AUC</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-balance-scale"></i>
+            <span>Successfully handled <strong>extreme class imbalance</strong></span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Maximized <strong>Recall</strong> for risk detection</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-user"></i> Project Info</h3>
+          <div class="role-item">
+            <div class="role-label">Role</div>
+            <div class="role-value">Data Scientist</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Category</div>
+            <div class="role-value">Machine Learning / Finance</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-link"></i> Links</h3>
+          <div class="sidebar-links">
+            <a href="https://github.com/louiee-jason" target="_blank" class="btn btn-outline btn-small" style="width: 100%; justify-content: center;">
+              <i class="fa-brands fa-github"></i> View GitHub Profile
+            </a>
+            <a href="../index.html#projects" class="btn btn-primary btn-small" style="width: 100%; justify-content: center; margin-top: 10px;">
+              <i class="fa-solid fa-arrow-left"></i> All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 &mdash; Built by <span>Louie Jason</span></p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('open'); }));
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

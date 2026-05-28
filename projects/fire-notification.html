@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Raspberry Pi Based Multi-Floor Fire Alarm System Using Python and MQTT. By Louie Jason." />
+  <title>Raspberry Pi Fire Alarm System | Louie Jason</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../project-page.css" />
+  <style>
+    /* Specific custom styles for case-study cards */
+    .hardware-grid, .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .modern-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-med);
+    }
+    .modern-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .modern-card h3 {
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .workflow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+      background: var(--bg-card);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+    .workflow-number {
+      background: var(--accent-bg);
+      color: var(--accent);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .workflow-content p {
+      margin: 0;
+    }
+    .diagram-flow {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      text-align: center;
+      font-family: monospace;
+      font-size: 1.1rem;
+      line-height: 2;
+      color: var(--text-primary);
+      margin: 20px 0;
+      box-shadow: var(--shadow-md);
+    }
+    .diagram-flow i {
+      color: var(--accent);
+      display: block;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <nav class="navbar scrolled" id="navbar">
+    <a href="../index.html#projects" class="nav-logo">LJ.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#hero">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80" alt="Raspberry Pi Board" />
+    </div>
+    <div class="project-hero-content">
+      <a href="../index.html#projects" class="project-back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      <span class="project-category-badge robotics">
+        <i class="fa-solid fa-microchip"></i> Embedded Systems & IoT
+      </span>
+      <h1 class="project-hero-title">Raspberry Pi Based Multi-Floor Fire Alarm System Using Python and MQTT</h1>
+      <p class="project-hero-summary">
+        Real-Time IoT Fire Monitoring and Notification System
+      </p>
+    </div>
+  </section>
+
+  <section class="project-detail">
+    <div class="project-detail-grid">
+      <div class="project-main">
+        
+        <div class="project-section">
+          <h2><i class="fa-solid fa-circle-info"></i> Project Overview</h2>
+          <p>
+            This project was developed during an internship at <strong>PT Galva Technologies</strong> as part of the Research and Development (R&D) division.
+          </p>
+          <p>
+            The system was designed to create a real-time multi-floor fire alarm monitoring system using Raspberry Pi and the MQTT communication protocol. The project focused on developing embedded software capable of handling emergency button detection, real-time data transmission, relay activation, LED indicators, and audio notifications across multiple building floors.
+          </p>
+          <p>The architecture consists of two main systems:</p>
+          <ul>
+            <li><strong>Raspberry Pi Transmitter</strong></li>
+            <li><strong>Raspberry Pi Receiver</strong></li>
+          </ul>
+          <p>
+            Both systems communicate using the MQTT publish-subscribe architecture to ensure fast and lightweight real-time communication. The system was meticulously designed to support multi-floor emergency monitoring, scalable IoT communication, real-time notification systems, distributed alarm architecture, and seamless hardware-software integration.
+          </p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-sitemap"></i> System Architecture</h2>
+          <p>The complete workflow of the multi-floor fire alarm system is structured as follows:</p>
+          
+          <div class="workflow-step">
+            <div class="workflow-number">1</div>
+            <div class="workflow-content">
+              <p><strong>Push buttons</strong> represent emergency/fire triggers for each floor.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">2</div>
+            <div class="workflow-content">
+              <p><strong>TLP521-4</strong> optocoupler provides electrical isolation.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">3</div>
+            <div class="workflow-content">
+              <p><strong>PCF8574</strong> acts as I/O expander using I2C communication.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">4</div>
+            <div class="workflow-content">
+              <p><strong>Raspberry Pi Transmitter</strong> processes button status.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">5</div>
+            <div class="workflow-content">
+              <p><strong>MQTT protocol</strong> transmits data to Receiver.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">6</div>
+            <div class="workflow-content">
+              <p><strong>Raspberry Pi Receiver</strong> receives MQTT messages.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">7</div>
+            <div class="workflow-content">
+              <p><strong>ULN2003</strong> activates relays and indicators.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">8</div>
+            <div class="workflow-content">
+              <p><strong>LM741 amplifier</strong> drives audio announcement system.</p>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-number">9</div>
+            <div class="workflow-content">
+              <p><strong>LCD I2C</strong> displays real-time status information.</p>
+            </div>
+          </div>
+
+          <div class="project-image-showcase" style="margin: 20px 0;">
+            <img src="../img_mqtt/diagram.png" alt="System Architecture Diagram" style="max-width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);" />
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-network-wired"></i> MQTT Communication</h2>
+          <p>
+            <strong>THIS IS THE MAIN FOCUS OF THE PROJECT.</strong>
+            The system leverages the MQTT publish-subscribe architecture, which is a lightweight communication protocol perfectly suited for real-time message delivery, broker-based communication, and highly scalable IoT environments.
+          </p>
+
+          <div class="hardware-grid" style="margin-bottom: 20px;">
+            <div class="modern-card">
+              <h3><i class="fa-solid fa-satellite-dish"></i> Publisher</h3>
+              <p>The Raspberry Pi Transmitter acts as the publisher, continuously monitoring and sending emergency status data.</p>
+            </div>
+            <div class="modern-card">
+              <h3><i class="fa-solid fa-server"></i> Broker</h3>
+              <p>The HiveMQ public broker (broker.hivemq.com) manages the rapid message distribution between all nodes.</p>
+            </div>
+            <div class="modern-card">
+              <h3><i class="fa-solid fa-tower-cell"></i> Subscriber</h3>
+              <p>The Raspberry Pi Receiver subscribes to the broker and receives emergency notification data in real-time.</p>
+            </div>
+          </div>
+
+          <h3>Communication Flow:</h3>
+          <ol>
+            <li>Emergency button is pressed</li>
+            <li>Raspberry Pi reads PCF8574 input</li>
+            <li>Button status converted into binary data</li>
+            <li>Data published to MQTT topic</li>
+            <li>MQTT broker distributes message</li>
+            <li>Receiver subscribes and receives data</li>
+            <li>Relay and alarm activated automatically</li>
+          </ol>
+
+          <p>
+            The MQTT protocol was selected because it provides extremely low bandwidth usage, lightweight communication overhead, ultra-fast message transmission, real-time responsiveness, and highly scalable IoT implementation capabilities.
+          </p>
+          <p><em>"The system used broker.hivemq.com as the MQTT broker with real-time publish-subscribe communication between transmitter and receiver devices."</em></p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-broadcast-tower"></i> Transmitter System</h2>
+          <p>The transmitter is responsible for reading the emergency push button status, monitoring PCF8574 input states, detecting button state changes, displaying status on LCD I2C, publishing MQTT messages, and sending real-time emergency notifications.</p>
+          <div style="margin: 20px 0; text-align: center;">
+            <img src="../img_mqtt/transmitter_flowchart.png" alt="Transmitter System Flowchart" style="max-width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" />
+          </div>
+          <p><strong>Technical Implementation:</strong> The Raspberry Pi transmitter continuously monitors button states using a Python-based infinite loop system. Data from the PCF8574 is captured via I2C communication, where button debounce handling and XOR bit-change detection ensure accurate reading. The state is then converted into an 8-bit binary format (binary payload generation) and transmitted through the MQTT publishing process whenever state changes are detected.</p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-satellite"></i> Receiver System</h2>
+          <p>The receiver's responsibilities include subscribing to designated MQTT topics, receiving real-time emergency data, activating relays and LED indicators, playing specific audio announcements, managing output devices, and handling multi-floor notifications appropriately.</p>
+          <div style="margin: 20px 0; text-align: center;">
+            <img src="../img_mqtt/receiver_flowchart.png" alt="Receiver System Flowchart" style="max-width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);" />
+          </div>
+          <p><strong>Technical Implementation:</strong> The receiver manages the continuous MQTT subscription process. When incoming MQTT payloads are received, it performs binary data parsing and bit manipulation to identify the triggered floor. It then triggers the relay activation logic and the audio triggering system, automatically activating emergency indicators and audio announcements based strictly on floor-specific events.</p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-memory"></i> Hardware Integration</h2>
+          <div class="hardware-grid">
+            <div class="modern-card">
+              <h3><i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi</h3>
+              <p>The main embedded controller providing the Python execution environment. Handles all MQTT communication and I2C communication management.</p>
+            </div>
+            <div class="modern-card">
+              <h3><i class="fa-solid fa-microchip"></i> PCF8574</h3>
+              <p>An I/O expander utilizing I2C to provide GPIO expansion, crucial for reading multi-button inputs and controlling multiple output devices efficiently.</p>
+            </div>
+            <div class="modern-card">
+              <h3><i class="fa-solid fa-plug"></i> ULN2003</h3>
+              <p>A relay driver IC designed for high-current switching, safely interfacing the low-power GPIO signals from the Pi with the higher voltage relays.</p>
+            </div>
+            <div class="modern-card">
+              <h3><i class="fa-solid fa-shield-halved"></i> TLP521-4</h3>
+              <p>Provides critical electrical isolation, signal protection, and acts as an optocoupler safety mechanism to protect the core processing boards.</p>
+            </div>
+            <div class="modern-card">
+              <h3><i class="fa-solid fa-volume-high"></i> LM741</h3>
+              <p>Responsible for audio amplification and speaker signal amplification, driving the emergency audio announcement system loud enough for the facility.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-brands fa-python"></i> Software Development</h2>
+          <p>The entire software architecture was developed in <strong>Python</strong>.</p>
+          <p>The main features involve a sophisticated Python MQTT client working alongside an infinite loop monitoring system. It leverages state comparison logic (bitwise operations) to detect changes, robust exception handling to maintain uptime, and modular embedded programming practices.</p>
+          <p>The software specifically handled:</p>
+          <ul>
+            <li>MQTT communication</li>
+            <li>GPIO monitoring</li>
+            <li>I2C communication</li>
+            <li>Relay control</li>
+            <li>LCD display handling</li>
+            <li>Audio playback</li>
+            <li>Bitwise operation processing</li>
+            <li>Real-time event detection</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-vial-circle-check"></i> Testing & Validation</h2>
+          <p>The system testing process was highly rigorous to ensure life-safety reliability. Testing included:</p>
+          <ul>
+            <li>MQTT communication testing</li>
+            <li>Transmitter-receiver synchronization</li>
+            <li>Relay activation validation</li>
+            <li>LCD notification testing</li>
+            <li>Audio notification testing</li>
+            <li>Real-time response testing</li>
+            <li>Multi-floor simulation testing</li>
+          </ul>
+          <p><em>"The system successfully demonstrated stable real-time MQTT communication and reliable emergency notification functionality."</em></p>
+        </div>
+
+        <div class="project-section">
+          <h2><i class="fa-solid fa-triangle-exclamation"></i> Key Challenges</h2>
+          <div class="challenges-grid">
+            <div class="modern-card">
+              <h3>1. Real-time Communication Stability</h3>
+              <p><strong>Challenge:</strong> Maintaining stable MQTT communication between transmitter and receiver over time.</p>
+              <p><strong>Solution:</strong> Implemented continuous MQTT loop handling and highly stable broker connection management.</p>
+            </div>
+            <div class="modern-card">
+              <h3>2. Hardware-Software Sync</h3>
+              <p><strong>Challenge:</strong> Synchronizing PCF8574 input states with Raspberry Pi processing latency.</p>
+              <p><strong>Solution:</strong> Used advanced bitwise state comparison and highly efficient polling logic.</p>
+            </div>
+            <div class="modern-card">
+              <h3>3. Audio Notification Timing</h3>
+              <p><strong>Challenge:</strong> Preventing overlapping audio announcements during multiple simultaneous triggers.</p>
+              <p><strong>Solution:</strong> Implemented controlled event prioritization and synchronous audio playback handling queues.</p>
+            </div>
+            <div class="modern-card">
+              <h3>4. GPIO Limitations</h3>
+              <p><strong>Challenge:</strong> Limited Raspberry Pi GPIO pins for a multi-floor system.</p>
+              <p><strong>Solution:</strong> Integrated the PCF8574 I/O expander completely through I2C communication multiplexing.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="project-sidebar">
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-chart-bar"></i> Final Results</h3>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Real-Time MQTT Communication</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-building"></i>
+            <span>Multi-Floor Monitoring</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Embedded IoT System</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-brands fa-raspberry-pi"></i>
+            <span>Raspberry Pi Integration</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-solid fa-volume-high"></i>
+            <span>Audio + Visual Notification</span>
+          </div>
+          <div class="sidebar-highlight">
+            <i class="fa-brands fa-python"></i>
+            <span>Python-Based Embedded Software</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+          <div class="sidebar-tech-list">
+            <span class="sidebar-tech-tag">Python</span>
+            <span class="sidebar-tech-tag">Raspberry Pi</span>
+            <span class="sidebar-tech-tag">MQTT</span>
+            <span class="sidebar-tech-tag">HiveMQ</span>
+            <span class="sidebar-tech-tag">PCF8574</span>
+            <span class="sidebar-tech-tag">ULN2003</span>
+            <span class="sidebar-tech-tag">TLP521-4</span>
+            <span class="sidebar-tech-tag">LM741</span>
+            <span class="sidebar-tech-tag">I2C Communication</span>
+            <span class="sidebar-tech-tag">Embedded Systems</span>
+            <span class="sidebar-tech-tag">IoT</span>
+            <span class="sidebar-tech-tag">Linux</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-graduation-cap"></i> Key Learnings</h3>
+          <ul style="list-style-type: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--text-secondary);">
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>Real-time MQTT communication</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>Embedded Python programming</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>Raspberry Pi development</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>IoT system architecture</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>I2C communication</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>Relay control systems</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>Hardware-software integration</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>Real-time event processing</li>
+            <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 8px;"></i>Embedded debugging</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-user"></i> Project Info</h3>
+          <div class="role-item">
+            <div class="role-label">Role</div>
+            <div class="role-value">R&D Intern (PT Galva Technologies)</div>
+          </div>
+          <div class="role-item">
+            <div class="role-label">Category</div>
+            <div class="role-value">Embedded Systems & IoT</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3><i class="fa-solid fa-link"></i> Links</h3>
+          <div class="sidebar-links">
+
+            <a href="../index.html#projects" class="btn btn-primary btn-small" style="width: 100%; justify-content: center; margin-top: 10px;">
+              <i class="fa-solid fa-arrow-left"></i> All Projects
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 &mdash; Built by <span>Louie Jason</span></p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('open'); }));
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
