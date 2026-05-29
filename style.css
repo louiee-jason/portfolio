@@ -1,6 +1,5 @@
 
 
-/* ===== ROOT VARIABLES & DESIGN TOKENS ===== */
 :root {
   --bg-primary: #F8F5F1;
   --bg-secondary: #EFE8DF;
@@ -36,7 +35,6 @@
   --navbar-height: 72px;
 }
 
-/* ===== RESET & BASE ===== */
 *,
 *::before,
 *::after {
@@ -88,7 +86,6 @@ img {
   display: block;
 }
 
-/* ===== PRELOADER ===== */
 .preloader {
   position: fixed;
   inset: 0;
@@ -131,7 +128,6 @@ img {
   }
 }
 
-/* ===== FLOATING BACKGROUND BLOBS ===== */
 .bg-blobs {
   position: fixed;
   inset: 0;
@@ -195,7 +191,6 @@ img {
   }
 }
 
-/* ===== PARTICLE CANVAS ===== */
 #particles-canvas {
   position: fixed;
   inset: 0;
@@ -203,7 +198,6 @@ img {
   pointer-events: none;
 }
 
-/* ===== NAVBAR ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -274,7 +268,6 @@ img {
   border-radius: 2px;
 }
 
-/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -307,7 +300,6 @@ img {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ===== SECTIONS COMMON ===== */
 section {
   position: relative;
   z-index: 1;
@@ -353,7 +345,6 @@ section {
   margin: 0 auto;
 }
 
-/* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -464,7 +455,6 @@ section {
   animation: fadeInUp 0.8s ease 0.8s both;
 }
 
-/* ===== BUTTONS ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -511,7 +501,6 @@ section {
   font-size: 0.82rem;
 }
 
-/* ===== HERO SCROLL INDICATOR ===== */
 .hero-scroll {
   position: absolute;
   bottom: 40px;
@@ -560,7 +549,6 @@ section {
   }
 }
 
-/* ===== ABOUT SECTION ===== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -681,7 +669,6 @@ section {
   transform: translateY(-1px);
 }
 
-/* ===== SKILLS SECTION ===== */
 .skills-categories {
   display: flex;
   flex-direction: column;
@@ -774,7 +761,6 @@ section {
   color: var(--accent);
 }
 
-/* ===== PROJECTS SECTION ===== */
 .projects-tabs {
   display: flex;
   justify-content: center;
@@ -968,7 +954,6 @@ section {
   }
 }
 
-/* ===== EXPERIENCE SECTION ===== */
 .timeline {
   position: relative;
   max-width: 800px;
@@ -1051,7 +1036,6 @@ section {
   line-height: 1.7;
 }
 
-/* ===== CERTIFICATIONS SECTION ===== */
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1107,7 +1091,6 @@ section {
   color: var(--text-muted);
 }
 
-/* ===== CONTACT SECTION ===== */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1192,7 +1175,6 @@ section {
   color: var(--text-muted);
 }
 
-/* Contact Form */
 .contact-form-wrapper {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
@@ -1250,7 +1232,6 @@ section {
   justify-content: center;
 }
 
-/* ===== FOOTER ===== */
 .footer {
   position: relative;
   z-index: 1;
@@ -1269,7 +1250,6 @@ section {
   font-weight: 600;
 }
 
-/* ===== SCROLL TO TOP ===== */
 .scroll-top {
   position: fixed;
   bottom: 32px;
@@ -1305,7 +1285,6 @@ section {
   box-shadow: 0 8px 24px rgba(176, 137, 104, 0.35);
 }
 
-/* ===== SCROLL REVEAL ANIMATIONS ===== */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -1339,7 +1318,6 @@ section {
   transform: translateX(0);
 }
 
-/* ===== KEYFRAMES ===== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1364,7 +1342,6 @@ section {
   }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -1479,7 +1456,6 @@ section {
   }
 }
 
-/* ===== MOBILE NAV OVERLAY ===== */
 .nav-overlay {
   display: none;
   position: fixed;
@@ -1495,7 +1471,6 @@ section {
   opacity: 1;
 }
 
-/* ===== CV DROPDOWN ===== */
 .dropdown-wrapper {
   position: relative;
   display: inline-block;

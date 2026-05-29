@@ -1,4 +1,4 @@
-/* ===== PROJECT PAGE STYLES ===== */
+
 
 .project-hero {
   min-height: 50vh;
@@ -98,7 +98,6 @@
   line-height: 1.8;
 }
 
-/* ===== PROJECT DETAIL BODY ===== */
 .project-detail {
   position: relative;
   z-index: 1;
@@ -113,7 +112,6 @@
   margin: 0 auto;
 }
 
-/* Main Content Column */
 .project-main h2 {
   font-family: var(--font-display);
   font-size: 1.4rem;
@@ -183,7 +181,6 @@
   display: block;
 }
 
-/* Sidebar */
 .project-sidebar {
   display: flex;
   flex-direction: column;
@@ -280,7 +277,6 @@
   justify-content: center;
 }
 
-/* Role Info */
 .role-item {
   padding: 10px 0;
   border-bottom: 1px solid var(--border-light);
@@ -309,7 +305,6 @@
   font-weight: 500;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .project-detail-grid {
     grid-template-columns: 1fr;

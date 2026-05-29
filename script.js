@@ -1,22 +1,14 @@
-/* ===================================================================
-   script.js — Portfolio interactions, animations & particles
-   =================================================================== */
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ───────────────────────────────────────────────
-  // 1. PRELOADER
-  // ───────────────────────────────────────────────
   const preloader = document.getElementById('preloader');
   window.addEventListener('load', () => {
     setTimeout(() => preloader.classList.add('hidden'), 800);
   });
-  // Fallback: hide preloader after 3 seconds regardless
+
   setTimeout(() => preloader.classList.add('hidden'), 3000);
 
-  // ───────────────────────────────────────────────
-  // 2. PARTICLE CANVAS
-  // ───────────────────────────────────────────────
   const canvas = document.getElementById('particles-canvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
@@ -52,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
       this.x += this.speedX;
       this.y += this.speedY;
 
-      // Mouse repulsion
       const dx = this.x - mouseX;
       const dy = this.y - mouseY;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -118,9 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animateParticles();
   });
 
-  // ───────────────────────────────────────────────
-  // 3. TYPING ANIMATION
-  // ───────────────────────────────────────────────
   const typingEl = document.getElementById('typingText');
   const phrases = [
     'Electrical Engineering Student',
@@ -159,9 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   typeEffect();
 
-  // ───────────────────────────────────────────────
-  // 4. NAVBAR — scroll effect & active link
-  // ───────────────────────────────────────────────
   const navbar = document.getElementById('navbar');
   const navLinksContainer = document.getElementById('navLinks');
   const navLinks = navLinksContainer.querySelectorAll('a');
@@ -174,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar.classList.remove('scrolled');
     }
 
-    // Active link
     let current = '';
     sections.forEach(section => {
       const top = section.offsetTop - 120;
@@ -194,9 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateNavbar);
   updateNavbar();
 
-  // ───────────────────────────────────────────────
-  // 5. HAMBURGER MENU
-  // ───────────────────────────────────────────────
   const hamburger = document.getElementById('hamburger');
   const navOverlay = document.getElementById('navOverlay');
 
@@ -218,9 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ───────────────────────────────────────────────
-  // 6. PROJECT TABS
-  // ───────────────────────────────────────────────
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
 
@@ -235,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tc.classList.remove('active');
         if (tc.id === target) {
           tc.classList.add('active');
-          // Re-trigger reveal for newly-visible cards
+
           tc.querySelectorAll('.reveal').forEach(el => {
             el.classList.remove('revealed');
             setTimeout(() => revealCheck(el), 50);
@@ -245,9 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ───────────────────────────────────────────────
-  // 7. SCROLL REVEAL
-  // ───────────────────────────────────────────────
   const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
   function revealCheck(el) {
@@ -263,12 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', onScrollReveal);
-  // Initial check
+
   setTimeout(onScrollReveal, 100);
 
-  // ───────────────────────────────────────────────
-  // 8. SCROLL TO TOP
-  // ───────────────────────────────────────────────
   const scrollTopBtn = document.getElementById('scrollTopBtn');
 
   window.addEventListener('scroll', () => {
@@ -283,9 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // ───────────────────────────────────────────────
-  // 9. CONTACT FORM (basic handler)
-  // ───────────────────────────────────────────────
   const contactForm = document.getElementById('contactForm');
 
   contactForm.addEventListener('submit', async (e) => {
@@ -293,7 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = contactForm.querySelector('.form-submit-btn');
     const originalText = btn.innerHTML;
 
-    // Show sending state
     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
@@ -324,9 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   });
 
-  // ───────────────────────────────────────────────
-  // 10. SMOOTH SCROLL FOR ANCHOR LINKS
-  // ───────────────────────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
@@ -339,9 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ───────────────────────────────────────────────
-  // 11. CV DROPDOWN
-  // ───────────────────────────────────────────────
   const cvDropdownBtn = document.getElementById('cvDropdownBtn');
   const cvDropdownMenu = document.getElementById('cvDropdownMenu');
 
