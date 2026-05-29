@@ -73,11 +73,21 @@
         Passionate about building intelligent systems through AI, automation, robotics, and data-driven technology.
       </p>
       <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">
+        <div class="dropdown-wrapper">
+          <button class="btn btn-primary" id="cvDropdownBtn">
+            <i class="fa-solid fa-download"></i> Download CV <i class="fa-solid fa-chevron-down" style="font-size: 0.8em; margin-left: 5px;"></i>
+          </button>
+          <div class="dropdown-menu" id="cvDropdownMenu">
+            <a href="cv/CV%20Louie%20DS.pdf" target="_blank" class="dropdown-item">
+              <i class="fa-solid fa-chart-line"></i> Data Science & ML
+            </a>
+            <a href="cv/CV%20Louie.pdf" target="_blank" class="dropdown-item">
+              <i class="fa-solid fa-microchip"></i> IoT & Robotics
+            </a>
+          </div>
+        </div>
+        <a href="#projects" class="btn btn-outline">
           <i class="fa-solid fa-rocket"></i> View Projects
-        </a>
-        <a href="#contact" class="btn btn-outline">
-          <i class="fa-solid fa-paper-plane"></i> Contact Me
         </a>
       </div>
     </div>

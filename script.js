@@ -339,4 +339,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ───────────────────────────────────────────────
+  // 11. CV DROPDOWN
+  // ───────────────────────────────────────────────
+  const cvDropdownBtn = document.getElementById('cvDropdownBtn');
+  const cvDropdownMenu = document.getElementById('cvDropdownMenu');
+
+  if (cvDropdownBtn && cvDropdownMenu) {
+    cvDropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cvDropdownMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!cvDropdownMenu.contains(e.target) && e.target !== cvDropdownBtn) {
+        cvDropdownMenu.classList.remove('show');
+      }
+    });
+  }
+
 });

@@ -1494,3 +1494,58 @@ section {
   display: block;
   opacity: 1;
 }
+
+/* ===== CV DROPDOWN ===== */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all var(--transition-fast);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background var(--transition-fast);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item i {
+  margin-right: 8px;
+  color: var(--primary-color);
+  width: 16px;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  background: rgba(176, 137, 104, 0.1);
+  color: var(--primary-color);
+}
