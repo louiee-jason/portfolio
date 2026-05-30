@@ -1,5 +1,4 @@
-
-
+/* ===== ROOT VARIABLES & DESIGN TOKENS ===== */
 :root {
   --bg-primary: #F8F5F1;
   --bg-secondary: #EFE8DF;
@@ -35,6 +34,7 @@
   --navbar-height: 72px;
 }
 
+/* ===== RESET & BASE ===== */
 *,
 *::before,
 *::after {
@@ -86,6 +86,7 @@ img {
   display: block;
 }
 
+/* ===== PRELOADER ===== */
 .preloader {
   position: fixed;
   inset: 0;
@@ -128,6 +129,7 @@ img {
   }
 }
 
+/* ===== FLOATING BACKGROUND BLOBS ===== */
 .bg-blobs {
   position: fixed;
   inset: 0;
@@ -191,6 +193,7 @@ img {
   }
 }
 
+/* ===== PARTICLE CANVAS ===== */
 #particles-canvas {
   position: fixed;
   inset: 0;
@@ -198,6 +201,7 @@ img {
   pointer-events: none;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -268,6 +272,7 @@ img {
   border-radius: 2px;
 }
 
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -300,6 +305,7 @@ img {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* ===== SECTIONS COMMON ===== */
 section {
   position: relative;
   z-index: 1;
@@ -345,6 +351,7 @@ section {
   margin: 0 auto;
 }
 
+/* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -455,6 +462,7 @@ section {
   animation: fadeInUp 0.8s ease 0.8s both;
 }
 
+/* ===== BUTTONS ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -501,6 +509,7 @@ section {
   font-size: 0.82rem;
 }
 
+/* ===== HERO SCROLL INDICATOR ===== */
 .hero-scroll {
   position: absolute;
   bottom: 40px;
@@ -549,6 +558,7 @@ section {
   }
 }
 
+/* ===== ABOUT SECTION ===== */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -669,6 +679,7 @@ section {
   transform: translateY(-1px);
 }
 
+/* ===== SKILLS SECTION ===== */
 .skills-categories {
   display: flex;
   flex-direction: column;
@@ -761,6 +772,7 @@ section {
   color: var(--accent);
 }
 
+/* ===== PROJECTS SECTION ===== */
 .projects-tabs {
   display: flex;
   justify-content: center;
@@ -954,6 +966,7 @@ section {
   }
 }
 
+/* ===== EXPERIENCE SECTION ===== */
 .timeline {
   position: relative;
   max-width: 800px;
@@ -1036,6 +1049,7 @@ section {
   line-height: 1.7;
 }
 
+/* ===== CERTIFICATIONS SECTION ===== */
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1091,6 +1105,7 @@ section {
   color: var(--text-muted);
 }
 
+/* ===== CONTACT SECTION ===== */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1175,6 +1190,7 @@ section {
   color: var(--text-muted);
 }
 
+/* Contact Form */
 .contact-form-wrapper {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
@@ -1232,6 +1248,7 @@ section {
   justify-content: center;
 }
 
+/* ===== FOOTER ===== */
 .footer {
   position: relative;
   z-index: 1;
@@ -1250,6 +1267,7 @@ section {
   font-weight: 600;
 }
 
+/* ===== SCROLL TO TOP ===== */
 .scroll-top {
   position: fixed;
   bottom: 32px;
@@ -1285,6 +1303,7 @@ section {
   box-shadow: 0 8px 24px rgba(176, 137, 104, 0.35);
 }
 
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -1318,6 +1337,7 @@ section {
   transform: translateX(0);
 }
 
+/* ===== KEYFRAMES ===== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1342,6 +1362,7 @@ section {
   }
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -1469,58 +1490,4 @@ section {
 .nav-overlay.visible {
   display: block;
   opacity: 1;
-}
-
-.dropdown-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 10px;
-  background: white;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  min-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all var(--transition-fast);
-  z-index: 100;
-  overflow: hidden;
-}
-
-.dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-item {
-  display: block;
-  padding: 12px 20px;
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: background var(--transition-fast);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.dropdown-item:last-child {
-  border-bottom: none;
-}
-
-.dropdown-item i {
-  margin-right: 8px;
-  color: var(--primary-color);
-  width: 16px;
-  text-align: center;
-}
-
-.dropdown-item:hover {
-  background: rgba(176, 137, 104, 0.1);
-  color: var(--primary-color);
 }
