@@ -990,11 +990,24 @@ section {
   margin-top: auto;
   display: flex;
   gap: 10px;
+  overflow-x: auto;
+  width: 100%;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+}
+
+.project-links::-webkit-scrollbar {
+  height: 4px;
+}
+.project-links::-webkit-scrollbar-thumb {
+  background: rgba(176, 137, 104, 0.4);
+  border-radius: 4px;
 }
 
 .project-links .btn {
-  flex: 1;
+  flex: 0 0 auto;
   justify-content: center;
+  min-width: max-content;
 }
 
 .tab-content {
